@@ -4,9 +4,12 @@ const http = require("http");
 const server = http.createServer(app);
 const port = process.env.PORT || 3000;
 const io = require("socket.io")(server)
+const enforce = require('express-sslify');
 
 
 app.use(express.static('public'));
+
+app.use(enforce.HTTPS());
 
 app.get('/',(req,res)=>{
     res.sendFile('./index.html')
