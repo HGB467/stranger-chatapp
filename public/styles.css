@@ -172,3 +172,7 @@ outline: none;
     margin-left: 10px;
     width: 15ch;
   }
+  .msg-cont{
+    overflow-y: scroll;
+    max-height: 85vh;
+  }

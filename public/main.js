@@ -846,6 +846,13 @@ function enablebtns(){
     })
   }
 
+  
+  setInterval(() => {
+    const ha = document.getElementById('msgCont')
+    ha.scrollTop = ha.scrollHeight;
+    console.log('end')
+}, 3000);
+
 
 
 
