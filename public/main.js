@@ -110,11 +110,15 @@ let connectedUser;
 
 let dataChannel;
 
-const configuration=[
-    {
-        urls:'http://stun.services.mozilla.com/'
-    }
-]
+const configuration={
+    iceServers:[
+        {
+            url:'turn:numb.viagenie.ca',
+            credential:'muazkh',
+            username:'webrtc@live.com',
+        }
+    ]
+}
 
 
 function getStream(){
