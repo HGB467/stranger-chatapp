@@ -112,7 +112,7 @@ let dataChannel;
 
 const configuration=[
     {
-        urls:'stun.l.google.com:19302'
+        urls:'http://stun.services.mozilla.com/'
     }
 ]
 
