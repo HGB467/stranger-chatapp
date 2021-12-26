@@ -66,7 +66,7 @@ function startRecording(){
 function handleData(e){
   if(e.data.size>0){
   collectedChunks.push(e.data)
-  console.log(collectedChunks,"handleDta")
+  
   downloadData()
   }
 }
@@ -82,7 +82,7 @@ function downloadData() {
     a.href = url;
     a.download = "record.webm";
     a.click();
-    console.log("downloading",url)
+    
     window.URL.revokeObjectURL(url);
   }
 
@@ -160,24 +160,20 @@ function peerConnection(){
 
      peer.ondatachannel=(e)=>{
          const channel = e.channel;
-
-    channel.onopen=()=>{
-        console.log("Data Channel Is Open")
-        }
    
     channel.onmessage=(e)=>{
        appendMessages(false,e.data)
       }
 
     channel.onerror=(e)=>{
-        console.log(e)
+        console.log(err)
     }
 
      }
 
     peer.onconnectionstatechange= (e)=>{
         if(e.connectionState==='connected'){
-            console.log(e.connectionState)
+            
         }
     }
 
@@ -203,7 +199,7 @@ function peerConnection(){
 socket.on('connect',()=>{
     state.changeSocketId(socket.id)
    let vari = state.getState().callState
-   console.log(vari)
+   
    updateCallState(vari)
 
     personalCode.innerHTML = state.getState().socketId
@@ -221,7 +217,7 @@ socket.on('connect',()=>{
                 socketId:data.callerId,
                 type:data.type
             }
-            console.log(connectedUser)
+            
             const {callerId,type} = data;
             if(type){
                 createDialogBox(type)
@@ -231,12 +227,12 @@ socket.on('connect',()=>{
       })
 
       socket.on('pre-ans',(data)=>{
-          console.log("%")
+          
       handleanswer(data)
       })
 
       socket.on('webRTC-signaling',(data)=>{
-          console.log('webRtc emit')
+          
           if(data.type==='OFFER'){
               handlewebrtcoffer(data)
           }
@@ -257,7 +253,7 @@ socket.on('connect',()=>{
       })
 
       socket.on('randomId',(data)=>{
-          console.log(data)
+          
           handleStr(data)
       })
 })
@@ -292,7 +288,7 @@ function handlerejected(){
 }
 
 function updateCallState(state){
-    console.log(state)
+    
     if(state==='BOTH'){
         const vidBtn = document.querySelector('.vidBtn');
         const vidiBtn = document.querySelector('.vidiBtn');
@@ -327,7 +323,7 @@ hangUpVid.addEventListener('click',()=>{
 })
 
 function handlehanged(){
-    console.log("hanged")
+    
     state.changeCallState('BOTH')
     if(peer){
         peer.close();
@@ -410,7 +406,7 @@ const sendBtn = document.getElementById('btnCla')
 //         sendMessages(e.target.value)
 //         appendMessages(true)
 //         input.value ='';
-//         console.log('sent')
+//         
 //     }
 // })
 
@@ -420,13 +416,13 @@ const sendBtn = document.getElementById('btnCla')
 //         sendMessages(e.target.value)
 //         appendMessages(true)
 //         input.value ='';
-//         console.log('sent')
+//         
 //     }
 // })
 
 sendBtn.addEventListener('click',()=>{
     const message = input.value;
-    console.log(message)
+    
     sendMessages(message)
     appendMessages(true)
     input.value = '';
@@ -455,7 +451,7 @@ function sendMessages(message){
 }
 
 async function handleicecandidates(data){
-    console.log(data,"can")
+    
  try{await peer.addIceCandidate(data.candidate)}
  catch(err){
      console.error(err)
@@ -463,13 +459,13 @@ async function handleicecandidates(data){
 }
 
 async function handlewebrtcanswer(data){
-    console.log(data,'answer');
+    ;
     await peer.setRemoteDescription(data.answer)
 }
 
 
 async function handlewebrtcoffer(data){
-    console.log(data,'offer')
+    
     let dat = await peer.setRemoteDescription(data.offer);
     let answer = await peer.createAnswer();
     await peer.setLocalDescription(answer);
@@ -483,7 +479,7 @@ async function handlewebrtcoffer(data){
 
 function createDialogBox(type){
     const typeInf = type==='CHAT-CALL'?"Chat":"Video"
-  console.log(type)
+  
   const main = document.getElementById('ma')
   const bl = document.getElementById('bl')
   bl.style.filter= 'blur(30px)'
@@ -574,7 +570,7 @@ function handlebtn(action,type){
     }
 
 function handleanswer(data){
-    console.log('handle answer',data.action)
+    
      const {action,type} = data;
     if(action==='Call Declined'){
         showAnsBox(action)
@@ -601,7 +597,7 @@ function handleanswer(data){
 async function handlecallaccepted(type){
     peerConnection()
     await sendOffer()
-    console.log(type)
+    
     const a = document.createElement('a')
     a.style.display='none';
     a.href=type==='Chat'?'#nam':"#kam"
@@ -643,7 +639,7 @@ else{
 }
 
 function showAnsBox(action){
-    console.log("Gettting Ex1")
+    
     window.addEventListener('click',()=>{
         const bl = document.getElementById('bl')
         bl.style.filter= 'blur(0px)'
@@ -685,12 +681,12 @@ function showAnsBox(action){
 
 copyBtn.addEventListener('click',()=>{
     const value = state.getState().socketId;
-    console.log(value,'clicked')
+    
     navigator.clipboard && navigator.clipboard.writeText(value)
 })
 
 function showCallerSideBox(){
-    console.log("Getting Ex")
+    
     const main = document.getElementById('ma')
     const bl = document.getElementById('bl')
     bl.style.filter= 'blur(30px)'
@@ -743,7 +739,7 @@ chatBtn.addEventListener('click',()=>{
         socketId:value,
         type
     }
-    console.log(connectedUser)
+    
     socket.emit('pre-offer',{
         type,
         callId:value
@@ -760,7 +756,7 @@ vidBtn.addEventListener('click',()=>{
         socketId:value,
         type
     }
-    console.log(connectedUser)
+    
     socket.emit('pre-offer',{
         type,
         callId:value
@@ -785,18 +781,18 @@ micCont.addEventListener('click',()=>{
     const aud = state.getState().localStream;
     const audT = aud.getAudioTracks()[0].enabled;
     aud.getAudioTracks()[0].enabled = !audT;
-    console.log(audT,!audT)
+    
     mic.src = audT ? micOff : micOn
-    console.log(mic.src)
+    
 })
 
 camCont.addEventListener('click',()=>{
     const vid = state.getState().localStream;
     const vidT = vid.getVideoTracks()[0].enabled;
     vid.getVideoTracks()[0].enabled = !vidT;
-    console.log(vid,!vidT)
+    
     cam.src = vidT ? camOff : camOn
-    console.log(cam.src)
+    
 })
 
 const recCont = document.getElementById('recCont');
@@ -846,7 +842,7 @@ recCont.addEventListener('click',async()=>{
      localStream.srcObject = screenStream;
 
      state.changeScreenSharingActive(true)
-     console.log(localStream.srcObject)}
+     }
      catch(err){
          console.error(err)
      }
@@ -858,14 +854,14 @@ const strangetVid = document.getElementById('stvid');
 const chech = document.getElementById('chech')
 
 strangetChat.addEventListener('click',()=>{
-    console.log('clicked')
+    
     socket.emit('getRandomId',{
         type:"CHAT-CALL"
     })
 })
 
 strangetVid.addEventListener('click',()=>{
-    console.log('clicked')
+    
     socket.emit('getRandomId',{
         type:"VIDEO-CALL"
     })
@@ -875,7 +871,7 @@ let some = false;
 
 chech.addEventListener('click',()=>{
         some=!some
-    console.log(some,'exec')
+    
     socket.emit('stranger-em',{
         status:some
     })
@@ -899,7 +895,7 @@ function enablebtns(){
   setInterval(() => {
     const ha = document.getElementById('msgCont')
     ha.scrollTop = ha.scrollHeight;
-    console.log('end')
+    
 }, 1500);
 
 $(function() {
