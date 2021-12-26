@@ -393,16 +393,29 @@ function updateUI(type){
 
 const input = document.getElementById('inh');
 const sendBtn = document.getElementById('btnCla')
+const input2 = document.querySelector('.emoji-wysiwyg-editor')
 
-input.addEventListener('keydown',(e)=>{
-    const key = e.key;
-    if(key==='Enter'){
-        sendMessages(e.target.value)
-        appendMessages(true)
-        input.value ='';
-        console.log('sent')
-    }
-})
+// Uncomment In Case Of Using Default Input(With No Emoji Support)
+
+// input.addEventListener('keydown',(e)=>{
+//     const key = e.key;
+//     if(key==='Enter'){
+//         sendMessages(e.target.value)
+//         appendMessages(true)
+//         input.value ='';
+//         console.log('sent')
+//     }
+// })
+
+// input2&&input2.addEventListener('keydown',(e)=>{
+//     const key = e.key;
+//     if(key==='Enter'){
+//         sendMessages(e.target.value)
+//         appendMessages(true)
+//         input.value ='';
+//         console.log('sent')
+//     }
+// })
 
 sendBtn.addEventListener('click',()=>{
     const message = input.value;
@@ -881,7 +894,18 @@ function enablebtns(){
     console.log('end')
 }, 1500);
 
-
+$(function() {
+    // Initializes and creates emoji set from sprite sheet
+    window.emojiPicker = new EmojiPicker({
+      emojiable_selector: '[data-emojiable=true]',
+      assetsPath: 'http://onesignal.github.io/emoji-picker/lib/img/',
+      popupButtonClasses: 'fa fa-smile-o'
+    });
+    // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
+    // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
+    // It can be called as many times as necessary; previously converted input fields will not be converted again
+    window.emojiPicker.discover();
+  });
 
 
 
