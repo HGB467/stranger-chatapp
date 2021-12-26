@@ -7,10 +7,12 @@
     <title>Video Chat App</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="shortcut icon" href="#">
+    <link herf="https://cdn.jsdelivr.net/npm/onesignal-emoji-picker@1.0.0/lib/css/emoji.css" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
     <div id="ma" style="position: relative;" >
-      <div id="bl" style="display: flex;height: 100vh;">
+      <div id="bl" style="display: flex;">
          <div id="firstmain" class="area" style="flex: 1;background: linear-gradient(168.68deg, #0052c9 1.12%, #0a91db 100%);">
           <img style="width: 130px;height: 130px;margin-left: 25px;" src="./images/logo.png">
           <p style="color: rgba(255, 255, 255, 0.88);margin: 0 20px;font-size: 13px;line-height: 20px;">Talk With Other Users By Passing His Personal Code Or Talk With Strangers</p>
@@ -24,14 +26,14 @@
           <div style="display: flex;margin:0 25px;flex-direction: column;">
              <p style="color: white;opacity: 0.89;">Personal Code</p>
              <input id="inp-code" style="background-color: rgba(255, 255, 255, 0.25);border:0.1px solid white;border-radius: 7px;padding: 7px 9px;font-size: 17px;color: white;">
-             <div style="display: flex;gap: 2rem;width: 100%;margin: 20px;">
+             <div class="j" style="display: flex;gap: 2rem;width: 100%;margin: 20px;">
                <div id="chatBtn" class="div-stl disb" style="padding: 3px 9px;background-color: white;border-radius: 10px;cursor: pointer;display: flex;align-items: center;"><img src="./images/chatButton.png"></div>
                <div id="vidBtn" class="div-stl vidBtn disb" style="padding: 3px 9px;background-color: white;border-radius: 10px;cursor: pointer;display: flex;align-items: center;"><img src="./images/videoButton.png"></div>
              </div>
           </div>
           <div style="display: flex;flex-direction: column;margin: 10px 25px;">
             <p style="color: white;opacity: 0.89;">Stranger</p>
-            <div style="display: flex;gap: 2rem;width: 100%;margin: -5px 10px;">
+            <div class="i" style="display: flex;gap: 2rem;width: 100%;margin: -5px 10px;">
                 <div id="stchat" class="div-stl disb" style="padding: 3px 9px;background-color: white;border-radius: 10px;cursor: pointer;display: flex;align-items: center;"><img src="./images/chatButton.png"></div>
                 <div id="stvid" class="div-stl vidiBtn disb" style="padding: 3px 9px;background-color: white;border-radius: 10px;cursor: pointer;display: flex;align-items: center;"><img src="./images/videoButton.png"></div>
               </div>
@@ -44,17 +46,17 @@
               </div>
           </div>
         </div>
-         <div style="flex: 1.7;height: 100vh;align-items: center;justify-content: center;">
-            <div style="background: linear-gradient(168.68deg, #0052c9 1.12%, #0a91db 100%);height: 98vh;border-radius: 10px;margin: 10px 20px;position: relative;">
+         <div class="idiv" id="kam" style="flex: 1.7;align-items: center;justify-content: center;">
+            <div style="background: linear-gradient(168.68deg, #0052c9 1.12%, #0a91db 100%);height: 98vh;border-radius: 10px;margin: 10px 20px;position: relative;padding-bottom: 5vh;">
                <img style="position: absolute;top: 40%;left: 30%;" src="./images/logo.png">
                <video autoplay id="remote-vid" style="position: absolute;width: 100%;height: 100%;top: 0;left: 0;z-index: 5;object-fit: cover;transform: rotate(360deg);"></video>
                <div style="background-color: rgba(255, 255, 255, 0.25);width: 190px;height: 190px;border-radius: 10px;position: absolute;top: 2%;left: 2%;"><video style="z-index: 7;position: absolute;top: 0;left: 0;width: 100%;height: 100%;border-radius: 10px;object-fit: cover;" muted autoplay id="myvid"></video></div>
-               <div class="display-none acc-box" style="gap: 1rem;position: absolute;top: 88%;left:18%;">
-                   <div id='micCont' class="div-stl" style="padding: 5px 15px;border-radius: 50%;background-color: rgba(255, 255, 255, 0.3);display: flex;align-items: center;z-index: 9;cursor: pointer;"><img id='mic' src="./images/mic.png"></div>
-                   <div id='camCont' class="div-stl" style="padding: 5px 15px;border-radius: 50%;background-color: rgba(255, 255, 255, 0.3);display: flex;align-items: center;z-index: 9;cursor: pointer;"><img id='cam' src="./images/camera.png"></div>
-                   <div id="hvid" class="div-stl" style="padding: 12px;border-radius: 15px;background-color: red;display: flex;align-items: center;z-index: 9;cursor: pointer;"><img src="./images/hangUp.png"></div>
-                   <div id='recCont' class="div-stl" style="padding: 5px 15px;border-radius: 50%;background-color: rgba(255, 255, 255, 0.3);display: flex;align-items: center;z-index: 9;cursor: pointer;"><img id='rec' src="./images/switchCameraScreenSharing.png"></div>
-                   <div id="recBtn" class="div-stl" style="padding: 5px 15px;border-radius: 50%;background-color: rgba(255, 255, 255, 0.3);display: flex;align-items: center;z-index: 9;cursor: pointer;"><img src="./images/recordingStart.png"></div>
+               <div class="display-none acc-box" style="gap: 1rem;position: absolute;top: 88%;justify-content: center;width: 100%;">
+                   <div id='micCont' class="div-stl" style="padding: 0.76vh 1.17vw;border-radius: 50%;background-color: rgba(255, 255, 255, 0.3);display: flex;align-items: center;z-index: 9;cursor: pointer;"><img  id='mic' src="./images/mic.png"></div>
+                   <div id='camCont' class="div-stl" style="padding: 0.76vh 1.17vw;border-radius: 50%;background-color: rgba(255, 255, 255, 0.3);display: flex;align-items: center;z-index: 9;cursor: pointer;"><img  id='cam' src="./images/camera.png"></div>
+                   <div id="hvid" class="div-stl" style="padding: 1.82vh 0.93vw;border-radius: 2.28vh 1.18vw;background-color: red;display: flex;align-items: center;z-index: 9;cursor: pointer;"><img src="./images/hangUp.png"></div>
+                   <div id='recCont' class="div-stl" style="padding: 0.76vh 1.17vw;border-radius: 50%;background-color: rgba(255, 255, 255, 0.3);display: flex;align-items: center;z-index: 9;cursor: pointer;"><img id='rec' src="./images/switchCameraScreenSharing.png"></div>
+                   <div id="recBtn" class="div-stl" style="padding: 0.76vh 1.17vw;border-radius: 50%;background-color: rgba(255, 255, 255, 0.3);display: flex;align-items: center;z-index: 9;cursor: pointer;"><img src="./images/recordingStart.png"></div>
                </div>
                <div class="display-none chatacc-box" style="position: absolute;top: 88%;left: 43%;">
                 <div id="hchat" class="div-stl" style="padding: 12px;border-radius: 15px;background-color: red;display: flex;align-items: center;z-index: 10;cursor: pointer;"><img src="./images/hangUp.png"></div>
@@ -66,11 +68,11 @@
                </div>
             </div>
         </div>
-         <div style="flex: 1;position: relative;background-color: aliceblue;">
+         <div class="na" id="nam" style="flex: 1;position: relative;background-color: aliceblue;width: 100%;">
             <div id="msgCont" class="msg-cont"></div>
-            <div class="display-none msg-inp" style="align-items: center;position: absolute;bottom: 5%;justify-content: center;width: 100%;">
-              <input id="inh" style="padding: 9px 35px 9px 7px;border:0.1px solid black;border-radius:5px;font-size:16px;width: 250px;" type="text" placeholder="Type Your Message...">
-              <div id="btnCla" style="padding:3px;border: none; background: linear-gradient(180deg, #ff9519 0%, #ffba6a 100%);display: flex;align-items: center;border-radius: 5px;cursor: pointer;position: absolute;left: 84%;"><img style="width: 25px;height: 25px;" src="./images/sendMessageButton.png"></div>
+            <div class="display-flex msg-inp" style="align-items: center;position: absolute;bottom: 5%;justify-content: center;width: 100%;">
+              <input class="inq" data-emojiable="true" id="inh" style="padding: 1.36vh 3vw 1.36vh 0.6vw;border:0.1px solid black;border-radius:5px;font-size:16px;width: 19.5vw;position: relative;" type="text" placeholder="Type Your Message...">
+              <div id="btnCla" style="padding:3px;border: none; background: linear-gradient(180deg, #ff9519 0%, #ffba6a 100%);display: flex;align-items: center;border-radius: 5px;cursor: pointer;position: absolute;left: 84%;top: 10%;"><img style="width: 26px;height: 26px;" src="./images/sendMessageButton.png"></div>
             </div>
         </div>
     </div>
@@ -78,7 +80,11 @@
 
 
 
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/onesignal-emoji-picker@1.0.0/lib/js/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/onesignal-emoji-picker@1.0.0/lib/js/util.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/onesignal-emoji-picker@1.0.0/lib/js/jquery.emojiarea.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/onesignal-emoji-picker@1.0.0/lib/js/emoji-picker.js"></script>
     <script defer src="/socket.io/socket.io.js"></script>
     <script defer src="state.js" type="module"></script>
     <script defer src="main.js" type="module"></script>

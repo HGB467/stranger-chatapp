@@ -174,5 +174,90 @@ outline: none;
   }
   .msg-cont{
     overflow-y: scroll;
-    max-height: 85vh;
+    height: 85vh;
   }
+
+  @media only screen and (max-width: 1024px){
+    #bl{
+      flex-direction: column !important;
+      justify-content: space-between !important;
+    }
+    .na{
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 2rem;
+      justify-content: space-between;
+      margin-top: 5vh !important;
+      max-height: 90vh !important;
+      padding-bottom: 5vh !important;
+    }
+    .chatacc-box{
+      top: 78% !important;
+      left: 46% !important;
+    }
+    .inq{
+      width: 85% !important;
+    }
+    .msg-inp{
+      position: relative !important;
+      width: 100% !important;
+    }
+    #btnCla{
+     top: 0% !important;
+     left: 91.4% !important;
+    }
+    .inq{
+      padding-right: 3.7vw !important;
+    }
+
+}
+
+@media only screen and (max-width: 768px){
+  #btnCla{
+    left: 90.9% !important;
+   }
+ .inq{
+   padding-right: 4.4vw !important;
+ }
+ .m-cont{
+  top: 2% !important;
+  left: 30% !important;
+}
+
+.m1-cont{
+  top: 2% !important;
+  left: 30% !important;
+}
+.m2-cont{
+  top: 2% !important;
+  left: 30% !important;
+}
+}
+
+@media only screen and (max-width: 425px){
+	.j{
+    margin-left: 0 !important;
+  }
+  .i{
+    margin-left: 0 !important;
+  }
+}
+
+@media only screen and (max-width: 367px){
+	#resume{
+    width: 13px !important;
+    height: 13px !important;
+  }
+  #pause{
+    width: 13px !important;
+    height: 13px !important;
+  }
+  #stop{
+    font-size: 10px !important;
+  }
+  #rec-box{
+  padding: 0 1px !important;
+  border-radius: 5px !important;
+  left: 70% !important;
+  }
+}

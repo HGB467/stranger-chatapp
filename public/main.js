@@ -469,6 +469,12 @@ function createDialogBox(type){
   bl.style.pointerEvents = 'none';
   disablebtns()
   const cont = document.createElement('div')
+  cont.setAttribute('id', 'namiz');
+  const a = document.createElement('a');
+  a.style.display='none';
+  a.href="#firstmain";
+  a.click()
+  a.remove()
   cont.classList.add('m-cont')
   const header = document.createElement('h2')
   header.innerHTML = `Incomming ${typeInf} Call`
@@ -507,6 +513,11 @@ function handlebtn(action,type){
     bl.style.pointerEvents = 'auto';
     enablebtns()
     const cont = document.querySelector('.m-cont')
+    const a = document.createElement('a')
+    a.style.display = 'none'
+    a.href=type==='Chat'?"#nam":"#kam"
+    a.click()
+    a.remove()
     cont.remove()
     if(action==='Call Accepted'){
         const area = document.querySelector('.area');
@@ -570,6 +581,11 @@ async function handlecallaccepted(type){
     peerConnection()
     await sendOffer()
     console.log(type)
+    const a = document.createElement('a')
+    a.style.display='none';
+    a.href=type==='Chat'?'#nam':"#kam"
+    a.click()
+    a.remove()
     const bl = document.getElementById('bl')
     bl.style.filter= 'blur(0px)'
     bl.style.pointerEvents = 'auto';
@@ -623,6 +639,12 @@ function showAnsBox(action){
      bl.style.pointerEvents = 'none';
      disablebtns()
      const cont = document.createElement('div')
+     cont.setAttribute('id', 'namiz');
+     const a = document.createElement('a');
+     a.style.display='none';
+     a.href="#firstmain";
+     a.click()
+     a.remove()
      cont.classList.add('m2-cont')
      const header = document.createElement('h2')
      header.innerHTML = `${action}`
@@ -654,6 +676,12 @@ function showCallerSideBox(){
     bl.style.pointerEvents = 'none';
     disablebtns()
     const cont = document.createElement('div')
+    const a = document.createElement('a');
+    a.style.display='none';
+    a.href="#firstmain";
+    main.appendChild(a)
+    a.click()
+    a.remove()
     cont.classList.add('m1-cont')
     const header = document.createElement('h2')
     header.innerHTML = `Calling`
@@ -851,7 +879,7 @@ function enablebtns(){
     const ha = document.getElementById('msgCont')
     ha.scrollTop = ha.scrollHeight;
     console.log('end')
-}, 3000);
+}, 1500);
 
 
 
