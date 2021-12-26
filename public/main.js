@@ -116,6 +116,9 @@ const configuration={
             url:'turn:numb.viagenie.ca',
             credential:'muazkh',
             username:'webrtc@live.com',
+        },
+        {
+            url:'stun:stun.I.google.com:19302'
         }
     ]
 }
