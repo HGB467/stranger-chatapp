@@ -138,9 +138,19 @@ let peer;
 function peerConnection(){
      peer = new RTCPeerConnection(configuration)
 
-     dataChannel = peer.createDataChannel('chat');
 
-     
+     peer.onicecandidate = (event)=>{
+        if(event.candidate){
+            socket.emit('webRTC-signaling',{
+                socketId:connectedUser.socketId,
+                type:'ICE CANDIDATES',
+                candidate:event.candidate
+            })
+        }
+       }
+
+       dataChannel = peer.createDataChannel('chat');
+
      peer.ondatachannel=(e)=>{
          const channel = e.channel;
 
@@ -157,15 +167,6 @@ function peerConnection(){
     }
 
      }
-    peer.onicecandidate = (event)=>{
-     if(event.candidate){
-         socket.emit('webRTC-signaling',{
-             socketId:connectedUser.socketId,
-             type:'ICE CANDIDATES',
-             candidate:event.candidate
-         })
-     }
-    }
 
     peer.onconnectionstatechange= (e)=>{
         if(e.connectionState==='connected'){
@@ -393,7 +394,6 @@ function updateUI(type){
 
 const input = document.getElementById('inh');
 const sendBtn = document.getElementById('btnCla')
-const input2 = document.querySelector('.emoji-wysiwyg-editor')
 
 // Uncomment In Case Of Using Default Input(With No Emoji Support)
 
@@ -419,6 +419,7 @@ const input2 = document.querySelector('.emoji-wysiwyg-editor')
 
 sendBtn.addEventListener('click',()=>{
     const message = input.value;
+    console.log(message)
     sendMessages(message)
     appendMessages(true)
     input.value = '';
