@@ -5,6 +5,7 @@ body{
     padding: 0;
     font-family: "Montserrat", sans-serif;
     columns: white;
+    scroll-behavior: smooth;
 }
 input:focus{
 outline: none;
