@@ -441,7 +441,7 @@ sendBtn.addEventListener('click',()=>{
         a.click();
         a.remove();
         elem.lastChild.removeAttribute('id')
-    },500)
+    },100)
 })
 
 function appendMessages(right,value){
