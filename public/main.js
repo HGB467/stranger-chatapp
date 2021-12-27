@@ -443,8 +443,7 @@ sendBtn.addEventListener('click',()=>{
         a.click();
         a.remove();
         elem.lastChild.removeAttribute('id')
-        console.log('done')
-    },1000)}
+    },0)}
 })
 
 function appendMessages(right,value){
@@ -935,7 +934,6 @@ $(function() {
     nam.style.margin = '0 1.5vw'
     const recCont = document.getElementById('recCont');
     recCont.style.display = 'none';
-    console.log('done')
   }
 
   if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent) 
