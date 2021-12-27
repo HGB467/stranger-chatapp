@@ -382,3 +382,7 @@ outline: none;
     height: 20px !important;
   }
 }
+
+#msgCont{
+  scroll-behavior: smooth;
+}
