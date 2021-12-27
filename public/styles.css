@@ -162,8 +162,9 @@ outline: none;
     color: whitesmoke;
     background: linear-gradient(168.68deg, #0052c9 1.12%, #0a91db 100%);
     margin-left: auto;
+    word-wrap: break-word;
     margin-right: 10px;
-    width: 15ch;
+    max-width: 15ch;
 
   }
   .left{
@@ -171,7 +172,8 @@ outline: none;
     background: linear-gradient(168.68deg, #fbd72b 1.12%, #f9484a 100%);
     margin-right: auto;
     margin-left: 10px;
-    width: 15ch;
+    word-wrap: break-word;
+    max-width: 15ch;
   }
   .msg-cont{
     overflow-y: scroll;

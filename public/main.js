@@ -463,11 +463,11 @@ function appendMessages(right,value){
   msg.classList.add('cut');
   if(right===true){
       msg.classList.add('right')
-      msg.innerHTML = input.value;
+      msg.textContent = input.value;
   }
   else{
       msg.classList.add('left')
-      msg.innerHTML = value;
+      msg.textContent = value;
   }
   
   msgCont.appendChild(msg)
